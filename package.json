@@ -6,6 +6,7 @@
     "url": "https://github.com/tinchoabbate/damn-vulnerable-defi.git"
   },
   "scripts": {
+    "week15": "yarn run unstoppable && yarn run naive-receiver && yarn run truster && yarn run side-entrance && yarn run the-rewarder",
     "unstoppable": "yarn hardhat test test/unstoppable/unstoppable.challenge.js",
     "truster": "yarn hardhat test test/truster/truster.challenge.js",
     "naive-receiver": "yarn hardhat test test/naive-receiver/naive-receiver.challenge.js",
