@@ -43,7 +43,7 @@ describe("[Challenge] Side entrance", function () {
 		);
 		const AttackSideEntranceFactory = await ethers.getContractFactory(
 			"AttackSideEntrance",
-			deployer
+			attacker
 		);
 		this.attack = await AttackSideEntranceFactory.deploy(this.pool.address);
 
