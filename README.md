@@ -4,7 +4,7 @@
 
 ---
 
-yarn run week15
+`yarn run week15`
 
 ---
 
