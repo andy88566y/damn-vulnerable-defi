@@ -1,15 +1,18 @@
 ![](cover.png)
 
-**A set of challenges to learn offensive security of smart contracts in Ethereum.**
+## Week15
 
-Featuring flash loans, price oracles, governance, NFTs, lending pools, smart contract wallets, timelocks, and more!
+---
 
-## Play
+yarn run week15
 
-Visit [damnvulnerabledefi.xyz](https://damnvulnerabledefi.xyz)
+---
 
 ## Disclaimer
 
 All Solidity code, practices and patterns in this repository are DAMN VULNERABLE and for educational purposes only.
+
+FORKed from [here](https://github.com/tinchoabbate/damn-vulnerable-defi/tree/v2.2.0)
+For Appworks Blockchain Program learning only
 
 DO NOT USE IN PRODUCTION.
